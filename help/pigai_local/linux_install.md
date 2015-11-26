@@ -96,62 +96,74 @@ eth0代表第一块网卡，如果遇到多网卡情况请检查网线所对应�
             # rm -f /etc/yum.repos.d/rhel.source.repo
             # vi /etc/yum.repos.d/Centos-Base.repo
 将下面的信息copy到新建立的**Centos-Base.repo**
-            # CentOS-Base.repo
-            #
-            # The mirror system uses the connecting IP address of the client and the
-            # update status of each mirror to pick mirrors that are updated to and
-            # geographically close to the client.  You should use this for CentOS updates
-            # unless you are manually picking other mirrors.
-            #
-            # If the mirrorlist= does not work for you, as a fall back you can try the
-            # remarked out baseurl= line instead.
-            #
-            #
 
-            [base]
-            name=CentOS-6 - Base
-            mirrorlist=http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=os&infra=$infra
-            #baseurl=http://mirror.centos.org/centos/6/os/$basearch/
-            gpgcheck=1
-            gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+```shell
+    # CentOS-Base.repo
+    #
+    # The mirror system uses the connecting IP address of the client and the
+    # update status of each mirror to pick mirrors that are updated to and
+    # geographically close to the client.  You should use this for CentOS updates
+    # unless you are manually picking other mirrors.
+    #
+    # If the mirrorlist= does not work for you, as a fall back you can try the
+    # remarked out baseurl= line instead.
+    #
+    #
 
-            #released updates
-            [updates]
-            name=CentOS-6 - Updates
-            mirrorlist=http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=updates&infra=$infra
-            #baseurl=http://mirror.centos.org/centos/6/updates/$basearch/
-            gpgcheck=1
-            gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+    [base]
+    name=CentOS-6 - Base
+    mirrorlist=http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=os&infra=$infra
+    #baseurl=http://mirror.centos.org/centos/6/os/$basearch/
+    gpgcheck=1
+    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-            #additional packages that may be useful
-            [extras]
-            name=CentOS-6 - Extras
-            mirrorlist=http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=extras&infra=$infra
-            #baseurl=http://mirror.centos.org/centos/6/extras/$basearch/
-            gpgcheck=1
-            gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+    #released updates
+    [updates]
+    name=CentOS-6 - Updates
+    mirrorlist=http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=updates&infra=$infra
+    #baseurl=http://mirror.centos.org/centos/6/updates/$basearch/
+    gpgcheck=1
+    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-            #additional packages that extend functionality of existing packages
-            [centosplus]
-            name=CentOS-6 - Plus
-            mirrorlist=http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=centosplus&infra=$infra
-            #baseurl=http://mirror.centos.org/centos/6/centosplus/$basearch/
-            gpgcheck=1
-            enabled=0
-            gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+    #additional packages that may be useful
+    [extras]
+    name=CentOS-6 - Extras
+    mirrorlist=http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=extras&infra=$infra
+    #baseurl=http://mirror.centos.org/centos/6/extras/$basearch/
+    gpgcheck=1
+    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-            #contrib - packages by Centos Users
-            [contrib]
-            name=CentOS-6 - Contrib
-            mirrorlist=http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=contrib&infra=$infra
-            #baseurl=http://mirror.centos.org/centos/6/contrib/$basearch/
-            gpgcheck=1
-            enabled=0
-            gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+    #additional packages that extend functionality of existing packages
+    [centosplus]
+    name=CentOS-6 - Plus
+    mirrorlist=http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=centosplus&infra=$infra
+    #baseurl=http://mirror.centos.org/centos/6/centosplus/$basearch/
+    gpgcheck=1
+    enabled=0
+    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+    #contrib - packages by Centos Users
+    [contrib]
+    name=CentOS-6 - Contrib
+    mirrorlist=http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=contrib&infra=$infra
+    #baseurl=http://mirror.centos.org/centos/6/contrib/$basearch/
+    gpgcheck=1
+    enabled=0
+    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+```
 
 然后执行：
-            # yum clean all
-            # yum makecache
+```shell
+   yum clean all
+   yum makecache
+```
 正常情况会出现下载的进度条一直到结束然后我们测试下
             # yum install -y unzip
 出现下载安装的进度条表明我们yun源配置成功。**yum**源有不少也可以根据自己的喜好选择。
+
+**pigai_install.sh 代码**
+
+```shell
+把shell代码放这里
+```
